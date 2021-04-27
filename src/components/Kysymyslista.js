@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-function Kyselylista() {
+function Kysymyslista() {
     const [kyselyt, setKyselyt] = useState([]);
     const [kysymykset, setKysymykset] = useState([]);
-    
-    let url="kysely/{id}/kysymykset";
 
     useEffect(() => {
         fetchKyselyt();
@@ -24,15 +22,13 @@ function Kyselylista() {
         .then(data => setKysymykset(data))
         .catch(err => console.error(err))
         }   
-        
 
       return(
           <div>
-              {kyselyt.map(kyselyt => <div>{kyselyt.nimi} <a href={url}>Linkki</a></div>)}
-              
+              {kysymykset.map(kysymys => <div>{kysymys.kysymysteksti}</div>)}
           </div>
       )   
     }
 
 
-export default Kyselylista;
+export default Kysymyslista;
