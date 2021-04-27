@@ -5,7 +5,7 @@ import Kyselylista from './components/Kyselylista';
 function App() {
   return (
     <div className="App">
-      <p>joo</p>
+      <p>Testi:)</p>
       <Kyselylista />
     </div>
   );

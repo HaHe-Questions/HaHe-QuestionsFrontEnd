@@ -17,7 +17,7 @@ function Kyselylista() {
       }
 
     const fetchKysymykset = () => {
-        fetch('https://hahequestions.herokuapp.com/kyselyt')
+        fetch('http://localhost:8080/kysely/1/kysymykset')
         .then(response => response.json())
         .then(data => setKysymykset(data))
         .catch(err => console.error(err))
@@ -25,14 +25,10 @@ function Kyselylista() {
 
       return(
           <div>
-              {kyselyt.map(kysely => <div>{kysely.nimi}{kysely.kysymykset.kysymysteksti}</div>)}
-              
+              {kysymykset.map(kysymys => <div>{kysymys.kysymysteksti}</div>)}
 
           </div>
-      )
-
-
-      
+      )   
     }
 
 
