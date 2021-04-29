@@ -18,8 +18,8 @@ function Kyselylista() {
 
       return(
           <div>
-              {kyselyt.map(kyselyt => <div>{kyselyt.nimi} <a href={url}>Linkki</a></div>)}
-              
+              {kyselyt.map(kysely => <div><a href={url+'/'+kysely.kysely_id}>{kysely.nimi}</a></div>)}
+                          
           </div>
       )   
     }

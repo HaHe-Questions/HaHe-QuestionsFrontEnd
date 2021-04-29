@@ -1,7 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 import Kyselylista from './components/Kyselylista';
-import Kysymyslista from './components/Kysymyslista';
+import Kysely from './components/Kysely';
 import {
   BrowserRouter,
   Switch,
@@ -19,10 +18,10 @@ function App() {
         <div>
           
           <Link to="/kyselylista">Kyselyt</Link>{' '}
-          <Link to="/kysymyslista">Kysymykset</Link>{' '}
+          <Link to="/kysely">Kysymykset</Link>{' '}
           <Switch>
             <Route path="/kyselylista" component={Kyselylista} />
-            <Route path="/kysymyslista" component={Kysymyslista} />
+            <Route path="/kysely" component={Kysely} />
             <Route render={() => <h1>Page not found</h1>} />
           </Switch>
         </div>
@@ -33,3 +32,22 @@ function App() {
 }
 
 export default App;
+// Open koodi 29.04 tunnin lopulta
+// return (
+//   <div className="App">
+//     <Router>
+
+//       <div>
+//         <Route exact path="/" render={() => <KyselyLista data={data} />} />
+//         <Route 
+//           path="/kyselyt/:id"
+//           render={() => <Kysely />}
+//         />
+//       </div>
+//     </Router>
+//   </div>
+// );
+// <Route 
+//           path="/kyselyt/:id"
+//           render={() => <Kysely />}
+//         />

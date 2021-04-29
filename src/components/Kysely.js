@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
-function Kysymyslista() {
+function Kysely() {
     const [kyselyt, setKyselyt] = useState([]);
     const [kysymykset, setKysymykset] = useState([]);
+    const kyselyId = 1;
 
     useEffect(() => {
         fetchKyselyt();
@@ -17,11 +18,12 @@ function Kysymyslista() {
       }
 
     const fetchKysymykset = () => {
-        fetch('https://hahequestions.herokuapp.com/kysely/4/kysymykset')
+        fetch('https://hahequestions.herokuapp.com/kysely/'+kyselyId+'/kysymykset')
         .then(response => response.json())
         .then(data => setKysymykset(data))
         .catch(err => console.error(err))
         }   
+
 
       return(
           <div>
@@ -31,4 +33,4 @@ function Kysymyslista() {
     }
 
 
-export default Kysymyslista;
+export default Kysely;
