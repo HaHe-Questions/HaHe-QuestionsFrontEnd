@@ -2,13 +2,11 @@ import React, { useState, useEffect } from 'react';
 
 function Kyselylista() {
     const [kyselyt, setKyselyt] = useState([]);
-    const [kysymykset, setKysymykset] = useState([]);
     
-    let url="kysely/{id}/kysymykset";
+    let url="/kysymyslista";
 
     useEffect(() => {
         fetchKyselyt();
-        fetchKysymykset();
       }, []);
 
     const fetchKyselyt = () => {
@@ -17,14 +15,6 @@ function Kyselylista() {
         .then(data => setKyselyt(data))
         .catch(err => console.error(err))
       }
-
-    const fetchKysymykset = () => {
-        fetch('http://localhost:8080/kysely/1/kysymykset')
-        .then(response => response.json())
-        .then(data => setKysymykset(data))
-        .catch(err => console.error(err))
-        }   
-        
 
       return(
           <div>

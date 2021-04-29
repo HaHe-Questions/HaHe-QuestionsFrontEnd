@@ -17,7 +17,7 @@ function Kysymyslista() {
       }
 
     const fetchKysymykset = () => {
-        fetch('http://localhost:8080/kysely/1/kysymykset')
+        fetch('https://hahequestions.herokuapp.com/kysely/4/kysymykset')
         .then(response => response.json())
         .then(data => setKysymykset(data))
         .catch(err => console.error(err))
