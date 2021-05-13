@@ -6,13 +6,9 @@ import Button from '@material-ui/core/Button';
 
 function Kysely(props) {
   const [kysymykset, setKysymykset] = useState([]);
-  const params = useParams();
-  const kyselyid = params.paramsid;
-    const [kysymykset, setKysymykset] = useState([]);
     const params = useParams();
     const kyselyid = params.paramsid;
     const [vastaukset, setVastaukset] = useState([]);
-
 
   useEffect(() => {
     console.log(kyselyid);
@@ -26,23 +22,6 @@ function Kysely(props) {
       .catch(err => console.error(err))
   }
 
- /* return (
-    <div>
-      {kysymykset.map(kysymys => <div>{kysymys.kysymysteksti}</div>)}
-    </div> 
-
-    <div>
-    {kysymykset.map(kysymys =>  <div><a href={'/kysymys/'+kysymys.kysymys_id}>{kysymys.kysymysteksti}</a></div>)}
-</div>
-  ) */
-}
-    const fetchKysymykset = () => {
-        fetch('https://hahequestions.herokuapp.com/kysely/'+ kyselyid +'/kysymykset')
-        .then(response => response.json())
-        .then(data => setKysymykset(data))
-        .catch(err => console.error(err))
-        }
-
     const inputChanged = (event) => {
           setVastaukset({...vastaukset, [event.target.name]: event.target.value});
           console.log(vastaukset);
@@ -52,7 +31,7 @@ function Kysely(props) {
 
       return(
           <div>
-              {kysymykset.map(kysymys =>  <div><a href={'/kysymys/'+kysymys.kysymys_id}>{kysymys.kysymysteksti}</a>)<br></br>
+              {kysymykset.map(kysymys =>  <div><a href={'/kysymys/'+kysymys.kysymys_id}>{kysymys.kysymysteksti}</a><br></br>
               <TextField 
                 id="outlined-basic" 
                 label="Vastaus" 
@@ -67,7 +46,7 @@ function Kysely(props) {
           </div>
       )   
     
-  
+      }
 
 
 export default Kysely;
