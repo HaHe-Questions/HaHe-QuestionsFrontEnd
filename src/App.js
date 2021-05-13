@@ -1,6 +1,7 @@
 import './App.css';
 import Kyselylista from './components/Kyselylista';
 import Kysely from './components/Kysely';
+import Vastaukset from './components/Vastaukset';
 import {
   BrowserRouter,
   Switch,
@@ -12,11 +13,12 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <div>      
+        <div>
           <Link to="/kyselylista">Kyselyt</Link>{' '}
           <Switch>
             <Route path="/kyselylista" component={Kyselylista} />
             <Route path="/kysely/:paramsid" component={Kysely} />
+            <Route path="/kysymys/:paramskysymys" component={Vastaukset} />
             <Route render={() => <h1>Page not found</h1>} />
           </Switch>
         </div>
