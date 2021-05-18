@@ -22,10 +22,23 @@ function Kysely(props) {
       .catch(err => console.error(err))
   }
 
-    const inputChanged = (event) => {
-          setVastaukset({...vastaukset, [event.target.name]: event.target.value});
-          console.log(vastaukset);
+  const inputChanged = (event) => {
+        // setVastaukset({...vastaukset, [event.target.name]: event.target.value});
+        setVastaukset({ "vastausteksti": "Kevät on erittäin kiva.", "kysymys": { "kysymys_id": 2 }})
+        console.log(vastaukset);
         }
+
+        const addVastaus = () => {
+          fetch('http://localhost:8080/tallennavastaus',
+          {
+            method: 'POST',
+            body: JSON.stringify(vastaukset),
+            headers: { 'Content-type' : 'application/json'  }
+          })
+          .then(_ => alert("kiitos vastauksesta"))
+          .catch(err => console.error(err))
+        }
+      
 
 
 
@@ -36,11 +49,13 @@ function Kysely(props) {
                 id="outlined-basic" 
                 label="Vastaus" 
                 variant="outlined" 
+                onChange={inputChanged}
+                //value={vastaukset.vastausteksti}
                 multiline
                 />
                 
                 </div>)}
-                <Button onClick={inputChanged} color="primary">
+                <Button onClick={addVastaus} color="primary">
                  Tallenna
               </Button>
           </div>
