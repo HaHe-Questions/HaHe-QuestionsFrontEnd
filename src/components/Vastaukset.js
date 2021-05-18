@@ -12,8 +12,7 @@ function Vastaukset(props) {
     }, []);
 
     const fetchVastaukset = () => {
-       // fetch('https://hahequestions.herokuapp.com/kysymys/' + kysymysid + '/vastaukset')
-       fetch('http://localhost:8080/kysymys/' + kysymysid + '/vastaukset')
+       fetch('https://hahequestions.herokuapp.com/kysymys/' + kysymysid + '/vastaukset')
             .then(response => response.json())
             .then(data => setVastaukset(data))
             .catch(err => console.error(err))

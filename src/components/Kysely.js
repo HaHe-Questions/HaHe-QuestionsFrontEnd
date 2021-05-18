@@ -22,18 +22,13 @@ function Kysely(props) {
   }
 
   const inputChanged = (event, kysymys_id, index) => {
-        // setVastaukset({...vastaukset, [event.target.name]: event.target.value});
-        // setVastaukset({ "vastausteksti": "Kevät on erittäin kiva.", "kysymys": { "kysymys_id": 2 }})
-       // setVastaukset({ "vastausteksti": event.target.value, "kysymys": { "kysymys_id": kysymys_id }})
-      // setVastaukset(...vastaukset, { "vastausteksti": event.target.value, "kysymys": { "kysymys_id": kysymys_id }})
-      let apuVastauksetList = [...vastaukset, { "vastausteksti": event.target.value, "kysymys": { "kysymys_id": kysymys_id }}]; // new array need to update
-      setVastaukset(apuVastauksetList); // update the state
+      let apuVastauksetList = [...vastaukset, { "vastausteksti": event.target.value, "kysymys": { "kysymys_id": kysymys_id }}];
+      setVastaukset(apuVastauksetList);
       console.log(vastaukset);
   }
 
         const addVastaus = () => {
-          // fetch('http://localhost:8080/tallennavastaus',
-          fetch('http://localhost:8080/tallennavastaukset',
+          fetch('https://hahequestions.herokuapp.com/tallennavastaukset',
           {
             method: 'POST',
             body: JSON.stringify(vastaukset),
@@ -51,8 +46,6 @@ function Kysely(props) {
                 label="Vastaus" 
                 variant="outlined" 
                 onBlur={e => inputChanged(e, kysymys.kysymys_id, index)}
-                //name="vastausteksti"
-                //value={vastaukset.vastausteksti}
                 multiline
                 />
                 </div>)}
