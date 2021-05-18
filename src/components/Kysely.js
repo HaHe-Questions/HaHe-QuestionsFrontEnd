@@ -8,7 +8,10 @@ function Kysely(props) {
   const [kysymykset, setKysymykset] = useState([]);
     const params = useParams();
     const kyselyid = params.paramsid;
-    const [vastaukset, setVastaukset] = useState([]);
+    const [vastaukset, setVastaukset] = useState({
+      vastausteksti: '',
+     // kysymys_id: props.k
+});
 
   useEffect(() => {
     console.log(kyselyid);
@@ -23,8 +26,9 @@ function Kysely(props) {
   }
 
   const inputChanged = (event) => {
-        // setVastaukset({...vastaukset, [event.target.name]: event.target.value});
-        setVastaukset({ "vastausteksti": "Kevät on erittäin kiva.", "kysymys": { "kysymys_id": 2 }})
+        setVastaukset({...vastaukset, [event.target.name]: event.target.value});
+        // setVastaukset({ "vastausteksti": "Kevät on erittäin kiva.", "kysymys": { "kysymys_id": 2 }})
+        // setVastaukset({ "vastausteksti": event.target.value, "kysymys": { "kysymys_id": kysymys_id }})
         console.log(vastaukset);
         }
 
@@ -50,7 +54,8 @@ function Kysely(props) {
                 label="Vastaus" 
                 variant="outlined" 
                 onChange={inputChanged}
-                //value={vastaukset.vastausteksti}
+                name="vastausteksti"
+                value={vastaukset.vastausteksti}
                 multiline
                 />
                 
